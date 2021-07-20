@@ -1,0 +1,14 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* navbar */
+
+#title:hover {
+    transform: scale(1.1);
+}
