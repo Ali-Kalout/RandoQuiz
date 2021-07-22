@@ -1,6 +1,6 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #F1F2F4;
+    background-color: #e0dfdf;
 }
 
 a {
@@ -29,7 +29,7 @@ hr {
 /* quiz */
 
 #quizSection {
-    min-height: 500px;
+    min-height: 450px;
 }
 
 .block h3 {
@@ -52,4 +52,9 @@ hr {
 
 .answer h3 {
     margin: 0;
+}
+
+#chosen {
+    background-color: #6f7dcd;
+    color: white;
 }

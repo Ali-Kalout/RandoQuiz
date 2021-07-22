@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import getQuiz from "./../utils/getQuiz.js";
 import reformQuiz from "../utils/reformQuiz.js";
+import correctionOfQuiz from "./../utils/correctionOfQuiz.js";
 
 const router = express.Router();
 
@@ -23,6 +24,18 @@ router.post("/", async (req, res) => {
         const reformedData = reformQuiz(data.results);
 
         return res.status(200).json({ questions: reformedData, name: req.body.name, uuid: uuid });
+    } catch (error) {
+        return res.status(400).json({ message: "An error has occured !" });
+    }
+});
+
+router.post("/submit", async (req, res) => {
+    try {
+        const { answers, uuid } = req.body;
+
+        const data = correctionOfQuiz(answers, activeQuizzes[uuid]);
+
+        return res.status(200).json({ data });
     } catch (error) {
         return res.status(400).json({ message: "An error has occured !" });
     }

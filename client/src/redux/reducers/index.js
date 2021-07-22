@@ -3,7 +3,8 @@ import * as ActionTypes from "./../ActionTypes";
 export const STATE = (state = {
     uuid: "",
     questions: [],
-    answers: [],
+    answers: {},
+    results: {},
     isLoading: false,
     error: "",
     fullName: ""
@@ -25,6 +26,13 @@ export const STATE = (state = {
                 fullName: action.payload.name,
                 uuid: action.payload.uuid
             };
+
+        case ActionTypes.CHOOSE_ANSWER:
+            const { questionIndex, answer } = action.payload;
+            return { ...state, answers: { ...state.answers, [questionIndex]: answer } };
+
+        case ActionTypes.SUBMIT_QUIZ:
+            return { ...state, results: action.payload };
 
         default:
             return state;

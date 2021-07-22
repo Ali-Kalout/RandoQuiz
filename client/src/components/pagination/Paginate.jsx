@@ -9,11 +9,12 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const Paginate = ({ page, numberOfPages, uuid }) => {
+const Paginate = ({ page, numberOfPages, uuid, disabled }) => {
     const classes = useStyles();
 
     return (
         <Pagination
+            disabled={disabled}
             classes={{ ul: classes.ul }}
             count={numberOfPages}
             page={parseInt(page) + 1 || 1}

@@ -3,9 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
+import Navbar from "./components/partials/Navbar";
 import Home from './components/Home';
 import Quiz from "./components/Quiz";
-import Navbar from "./components/partials/Navbar";
+import Results from "./components/Results";
 
 import "./styles.css";
 
@@ -19,6 +20,8 @@ const App = () => {
 				<Route exact path="/" component={Home} />
 				<Route exact path="/:quizId"
 					component={() => (questions?.length ? <Quiz /> : <Redirect to="/" />)} />
+				<Route exact path="/:quizId/results"
+					component={() => (questions?.length ? <Results /> : <Redirect to="/" />)} />
 
 				<Redirect to="/" />
 			</Switch>
