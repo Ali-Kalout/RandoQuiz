@@ -8,7 +8,9 @@ a {
     color: white;
 }
 
-
+hr {
+    margin: 10px 0 17px 0;
+}
 
 .center {
     text-align: center;
@@ -22,4 +24,32 @@ a {
 
 #title:hover {
     transform: scale(1.1);
+}
+
+/* quiz */
+
+#quizSection {
+    min-height: 500px;
+}
+
+.block h3 {
+    padding: 10px;
+}
+
+.questionNb {
+    text-decoration: underline;
+}
+
+.answer {
+    text-align: center;
+    cursor: pointer;
+}
+
+.answer:hover {
+    box-shadow: 3px 5px #888888;
+    background-color: #efecec;
+}
+
+.answer h3 {
+    margin: 0;
 }

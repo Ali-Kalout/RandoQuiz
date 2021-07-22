@@ -21,7 +21,7 @@ export const STATE = (state = {
         case ActionTypes.FETCH_QUIZ:
             return {
                 ...state,
-                questions: action.payload.questions.results,
+                questions: action.payload.questions,
                 fullName: action.payload.name,
                 uuid: action.payload.uuid
             };

@@ -10,7 +10,7 @@ export const fetchQuiz = (form, history) => async (dispatch) => {
             type: ActionTypes.FETCH_QUIZ,
             payload: data
         });
-
+        
         history.push(`/${data.uuid}/?page=0`);
     } catch (error) {
         dispatch({
