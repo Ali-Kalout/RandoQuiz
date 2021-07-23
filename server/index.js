@@ -10,6 +10,8 @@ app.use(bodyParser.json({ limit: "5mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "5mb", extended: true }));
 app.use(cors());
 
+app.get("/", (req, res) => res.send("Hello World!"));
+
 app.use("/", mainRoute);
 
 const PORT = process.env.PORT || 5000;
