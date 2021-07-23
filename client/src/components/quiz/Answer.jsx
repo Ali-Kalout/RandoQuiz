@@ -7,11 +7,18 @@ const convert = string => {
     });
 }
 
-const Answer = ({ answer, handleChoose, chosen }) => {
+const Answer = ({ answer, handleChoose, chosen, review, correct_answer, chosen_answer }) => {
     return (
         <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Paper className="block answer" elevation={3} onClick={() => handleChoose(answer)}
-                id={chosen ? "chosen" : ""}>
+            <Paper className={`block answer ${!review && 'hover'}`}
+                elevation={3}
+                onClick={() => { if (!review) handleChoose(answer) }}
+                id={chosen ? "chosen"
+                    : (chosen_answer && correct_answer && chosen_answer === correct_answer) ? "chosen_correct_answer"
+                        : correct_answer ? "correct_answer"
+                            : chosen_answer ? "chosen_answer"
+                                : ""}
+            >
                 <h3>{convert(answer)}</h3>
             </Paper>
         </Grid>

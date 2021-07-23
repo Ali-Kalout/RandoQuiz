@@ -42,16 +42,31 @@ hr {
 
 .answer {
     text-align: center;
-    cursor: pointer;
 }
 
-.answer:hover {
+.hover:hover {
     box-shadow: 3px 5px #888888;
     background-color: #efecec;
+    cursor: pointer;
 }
 
 .answer h3 {
     margin: 0;
+}
+
+#correct_answer {
+    background-color: #3F51B5;
+    color: white;
+}
+
+#chosen_correct_answer {
+    background-color: green;
+    color: white;
+}
+
+#chosen_answer {
+    background-color: red;
+    color: white;
 }
 
 #chosen {

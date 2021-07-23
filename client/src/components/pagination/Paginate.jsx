@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const Paginate = ({ page, numberOfPages, uuid, disabled }) => {
+const Paginate = ({ page, numberOfPages, uuid, disabled, review }) => {
     const classes = useStyles();
 
     return (
@@ -24,7 +24,7 @@ const Paginate = ({ page, numberOfPages, uuid, disabled }) => {
                 <PaginationItem
                     {...item}
                     component={Link}
-                    to={`/${uuid}/?page=${item.page - 1}`}
+                    to={review ? `/${uuid}/review/?page=${item.page - 1}` : `/${uuid}/?page=${item.page - 1}`}
                 />
             )}
         />

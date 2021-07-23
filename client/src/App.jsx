@@ -11,7 +11,7 @@ import Results from "./components/Results";
 import "./styles.css";
 
 const App = () => {
-	const questions = useSelector(state => state.state.questions);
+	const { questions } = useSelector(state => state.state);
 
 	return (
 		<Container maxWidth="md">
@@ -22,6 +22,8 @@ const App = () => {
 					component={() => (questions?.length ? <Quiz /> : <Redirect to="/" />)} />
 				<Route exact path="/:quizId/results"
 					component={() => (questions?.length ? <Results /> : <Redirect to="/" />)} />
+				<Route exact path="/:quizId/review"
+					component={() => (questions?.length ? <Quiz review={true} /> : <Redirect to="/" />)} />
 
 				<Redirect to="/" />
 			</Switch>
