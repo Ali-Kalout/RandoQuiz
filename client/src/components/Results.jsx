@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Button } from '@material-ui/core';
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import RTable from './results/RTable';
 
 const Results = () => {
     const history = useHistory();
-    const { results, uuid } = useSelector(state => state.state);
+    const { results, uuid, questions, fullName } = useSelector(state => state.state);
     const answersStatus = calculateResults(results);
 
     return (
@@ -16,8 +17,20 @@ const Results = () => {
                     (Number(answersStatus["correct"]) + Number(answersStatus["else"])) * 100)}
                 &nbsp;/ 100.
             </h3>
-            <p onClick={() => history.push(`/${uuid}/review/?page=${0}`)}>review</p>
-            <pre>{JSON.stringify(results, null, 2)}</pre>
+            <h4>Hello {fullName}! You answered {Number(answersStatus["correct"])} correct question
+                {Number(answersStatus["correct"]) === 1 ? "" : "s"}.
+            </h4>
+            <RTable data={{ results: results, questions: questions }} />
+            <div style={{ textAlign: "right", marginBottom: "10px", marginTop: "10px" }}>
+                <Button onClick={() => window.location.reload()} size="large" variant="contained"
+                    color="secondary" style={{ marginRight: "5px" }}>
+                    Play Again
+                </Button>
+                <Button onClick={() => history.push(`/${uuid}/review/?page=${0}`)} color="primary"
+                    size="large" variant="contained">
+                    Review
+                </Button>
+            </div>
         </Container>
     );
 }

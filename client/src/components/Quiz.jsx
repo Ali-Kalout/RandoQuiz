@@ -21,11 +21,26 @@ const Quiz = ({ review }) => {
 
     return (
         <>
-            {review && <p>Review</p>}
             <Container id="quizSection">
                 <h3 className="questionNb">
                     Question : {parseInt(page) + 1} / {parseInt(questions.length)}
                 </h3>
+                {review && (
+                    <h3>
+                        Status :&nbsp;
+                        {results[page]?.correct_answer === results[page]?.chosen_answer ? (
+                            <span style={{ color: "green" }}>Correct</span>
+                        ) : (
+                            <span style={{ color: "red" }}>
+                                {!results[page]?.chosen_answer ? (
+                                    <span>Not Answered</span>
+                                ) : (
+                                    <span>Wrong</span>
+                                )}
+                            </span>
+                        )}
+                    </h3>
+                )}
                 <Question question={questions[page].question} />
                 <hr />
                 <Grid container spacing={2}>

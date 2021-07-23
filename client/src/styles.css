@@ -20,6 +20,24 @@ hr {
     margin: 10px;
 }
 
+table {
+    width: 100%;
+}
+
+thead td {
+    font-weight: bold;
+}
+
+td {
+    padding: 5px;
+}
+
+table,
+tr,
+td {
+    border: 1px solid grey;
+}
+
 /* navbar */
 
 #title:hover {
