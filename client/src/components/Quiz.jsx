@@ -56,8 +56,14 @@ const Quiz = ({ review }) => {
                     ))}
                 </Grid>
             </Container>
+            <Container maxWidth="sm">
+                <Paper elevation={3}>
+                    <Paginate page={page} numberOfPages={questions.length} uuid={uuid}
+                        disabled={isLoading ? true : false} review={review} />
+                </Paper>
+            </Container>
             <Container>
-                <div style={{ textAlign: "right", marginBottom: "10px" }}>
+                <div style={{ textAlign: "right", marginTop: "10px" }}>
                     {!review ? (
                         <Button onClick={handleSubmit} color="primary" size="large"
                             variant="contained" disabled={isLoading ? true : false}>
@@ -70,12 +76,6 @@ const Quiz = ({ review }) => {
                         </Button>
                     )}
                 </div>
-            </Container>
-            <Container maxWidth="sm">
-                <Paper elevation={3}>
-                    <Paginate page={page} numberOfPages={questions.length} uuid={uuid}
-                        disabled={isLoading ? true : false} review={review} />
-                </Paper>
             </Container>
         </>
     );
