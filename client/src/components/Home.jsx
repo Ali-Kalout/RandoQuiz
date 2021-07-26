@@ -24,7 +24,7 @@ const Home = () => {
                 <br></br>GoodLuck!
             </h3>
             <Grid>
-                <Container maxWidth="md">
+                <div>
                     <Paper variant="outlined" style={{ padding: "15px" }} elevation={3}>
                         <div className="margin">
                             <TextField name="name" variant="outlined" fullWidth
@@ -41,7 +41,7 @@ const Home = () => {
                             />
                         </div>
                         <Grid container>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <div className="margin">
                                     <FormControl fullWidth variant="outlined">
                                         <InputLabel>Category</InputLabel>
@@ -61,7 +61,7 @@ const Home = () => {
                                     </FormControl>
                                 </div>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <div className="margin">
                                     <FormControl fullWidth variant="outlined">
                                         <InputLabel>Difficulty</InputLabel>
@@ -87,7 +87,7 @@ const Home = () => {
                             <span style={{ marginLeft: "10px", color: "red", fontWeight: "bold" }}>{state.error}</span>
                         </div>
                     </Paper>
-                </Container>
+                </div>
             </Grid>
         </Container>
     );
